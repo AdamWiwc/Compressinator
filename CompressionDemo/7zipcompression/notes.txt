@@ -1,0 +1,73 @@
+http://www.dotnetperls.com/compress
+https://msdn.microsoft.com/en-us/library/ms404280(v=vs.110).aspx
+
+--HelloWorld
+--start cmd /c HelloWorld.cmd  (%CMDSPEC%)
+-- @ECHO OFF, ECHO ON
+-- SET foo=bar   // setting a variable
+-- system variables : echo %temp%
+-- >set , >%date% >set /?
+--HelloMe reza
+
+
+IF %ERRORLEVEL% NEQ 0 (
+  REM do something here to address the error
+)
+--To execute a follow-on command after sucess, we use the && operator:
+SomeCommand.exe && ECHO SomeCommand.exe succeeded!
+
+To execute a follow-on command after failure, we use the || operator:
+SomeCommand.exe || ECHO SomeCommand.exe failed with return code %ERRORLEVEL%
+or SomeCommand.exe || EXIT /B 1  // exit script context but not the command console
+
+
+ --- standard In = keyboard, standard out / standard Err = monitor
+ --Redirection:
+        dir > temp.txt  // redirect to temp.txt
+        set >> temp.txt  // append to temp.txt
+        del temp.txt , type temp.txt 2> error.txt
+        dir temp.txt 2>&1  // redirecting stderr to stdout
+        This is useful if you want to write both stdout and stderr to a single log file:
+           dir temp.txt > log.txt 2>&1
+        
+        sort < temp.txt
+        
+        pint 127.0.0.1 > null
+        
+        dir /b | sort   // piping output as input to another program
+        
+        
+        --- loging the command line itself to an output file:
+        >type con > temp.txt
+        Hello
+             World!
+        ^Z
+        
+        
+    >IF EXIST "temp.txt" ECHO found
+    >if not exist temp1.txt echo not found
+    
+    
+          IF EXIST "temp.txt" (
+            ECHO found
+            ) ELSE (
+                ECHO not found
+            )
+            
+    IF "%var%"=="" (SET var=default value)   // check if a variable is not set
+           or
+    IF NOT DEFINED var (SET var=default value)
+    
+    
+    
+    
+    est that an executable program or script is in your PATH :
+    SomeFile.exe
+    IF %ERRORLEVEL% EQU 9009 (
+    ECHO error - SomeFile.exe not found in your PATH
+    )
+    
+    
+    
+
+
