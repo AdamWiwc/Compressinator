@@ -35,8 +35,7 @@ namespace _7zipCompression
 			// 3.
 			// Start process and wait for it to exit
 			//
-			Process x = Process.Start(p);
-			x.WaitForExit();
+			
 		}
 	}
 }
